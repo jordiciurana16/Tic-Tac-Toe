@@ -1,0 +1,166 @@
+
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+/*GAME BOARD*/
+
+#game-board {
+    width: 75vmin;
+    height: 75vmin;
+    display: grid;
+    grid-template-rows: repeat(3,auto);
+    grid-template-columns: repeat(3,auto);
+    background-color: black;
+}
+
+/*CELL*/
+
+.cell {
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell.cross::before,
+.cell.cross::after{
+    background-color: rgb(84, 99, 255);
+}
+.cell.circle::before,
+.cell.circle::after {
+    background-color: rgb(255, 24, 24);
+}
+
+.game-board.cross .cell:not(.cross):not(.circle):hover::before,
+.game-board.cross .cell:not(.cross):not(.circle):hover::after,
+.game-board.circle .cell:not(.cross):not(.circle):hover::before,
+.game-board.circle .cell:not(.cross):not(.circle):hover::after {
+    background-color: rgb(10, 10, 10) ;
+}
+
+
+
+/*full cell cursor*/
+
+.cell.cross, 
+.cell.circle {
+    cursor: not-allowed;
+}
+
+/*remove cell borders*/
+
+.cell:nth-child(1), 
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none;
+}
+
+/*Cross cell*/
+
+.cell.cross::before,
+.cell.cross::after,
+.game-board.cross .cell:not(.cross):not(.circle):hover::before,
+.game-board.cross .cell:not(.cross):not(.circle):hover::after {
+    position: absolute;
+    content:'';
+    justify-content: center;
+    width: 20%;
+    height: 90%;
+}
+
+.cell.cross::before,
+.game-board.cross .cell:not(.cross):not(.circle):hover::before {
+    transform: rotate(45deg);
+}
+
+.cell.cross::after,
+.game-board.cross .cell:not(.cross):not(.circle):hover::after {
+    transform: rotate(-45deg);
+
+}
+
+/*Circle cell*/
+
+.cell.circle::before,
+.cell.circle::after,
+.game-board.circle .cell:not(.cross):not(.circle):hover::before,
+.game-board.circle .cell:not(.cross):not(.circle):hover::after {
+    position: absolute;
+    content:'';
+    justify-content: center;
+    border-radius: 100%;
+}
+
+.cell.circle::before,
+.game-board.circle .cell:not(.cross):not(.circle):hover::before {
+    width: 85%;
+    height: 85%;
+}
+
+.cell.circle::after,
+.game-board.circle .cell:not(.cross):not(.circle):hover::after {
+    width: 50%;
+    height: 50%;
+    background-color: black;
+}
+
+/*Winning message*/
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.766);
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 3rem;
+    flex-direction: column;
+    color: white;
+}
+
+.winning-message button {
+    font-size: 1rem;
+    background-color: black;
+    border: 1px solid white;
+    padding: .50em;
+    cursor: pointer;
+    margin-top: 3vmin;
+    color: white;
+}
+
+.winning-message button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.winning-message.show {
+    display: flex;
+}

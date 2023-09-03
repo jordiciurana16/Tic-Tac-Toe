@@ -44,7 +44,7 @@ body {
 .game-board.cross .cell:not(.cross):not(.circle):hover::after,
 .game-board.circle .cell:not(.cross):not(.circle):hover::before,
 .game-board.circle .cell:not(.cross):not(.circle):hover::after {
-    background-color: rgb(10, 10, 10) ;
+    background-color: rgb(129, 129, 129) ;
 }
 
 

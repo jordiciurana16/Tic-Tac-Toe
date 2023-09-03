@@ -1,17 +1,17 @@
 // VARABLE DECLARATION
 
-const CROSS = 'cross'; 
+const CROSS = 'cross';
 const CIRCLE = 'circle';
 
 const WIN = [ // array of possible winning conditions
-    [0, 1, 2], 
-    [3, 4, 5], 
-    [6, 7, 8], 
-    [0, 3, 6], 
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
     [1, 4, 7],
-    [2, 5, 8], 
-    [2, 4, 6], 
-    [0, 4, 8], 
+    [2, 5, 8],
+    [2, 4, 6],
+    [0, 4, 8],
     [2, 4, 6]
 ];
 
@@ -94,7 +94,7 @@ function checkWin(currentTurn) { // check win function with the current class
 
 function isDraw() {
     return [...cellElements].every(cell => {
-        return cell.classList.contains(CROSS) || 
+        return cell.classList.contains(CROSS) ||
         cell.classList.contains(CIRCLE)
         draw = true;
     })
